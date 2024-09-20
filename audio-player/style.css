@@ -1,129 +1,186 @@
-
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-#background{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-}
-
-#background img{
-    margin: 0;
-    padding: 0;
-    height: 120%;
-    width: 105%;
-    -webkit-filter:blur(10px);
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 1;
+body {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(62, 60, 60);
+	font-family: Lucida Console, Monaco, monospace;
 }
 
-#blackLayer{
+.bg{
+	position: absolute;
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100%;
-    background-color: rgba(0,0,0,.2);
-    position: absolute;
+	background-image: url('./image/мояДорогаяНой.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center;
     z-index: 2;
 }
 
-/* main */
-#main{
-    width: 25%;
-    background-color:#fff;
-    border-radius: 15px;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 3;
-}
-#image img{
-    height: 180px;
-    width: 100%;
-    margin-top: -5px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
 /* player */
-#player{
-    padding: 25px;
-    color:#333;
+.player {
+	z-index: 100;
+	width: 350px;
+	height: 550px;
+	border-radius: 20px;
+	box-shadow: 0 40px 100px rgba(130, 103, 86, 0.8);
+	background: rgb(124 93 49 / 95%);
+	padding: 10px;
+	overflow: hidden;
+	color: rgb(16, 11, 0);
 }
 
-#songTitle{
-    width:300px;
-    text-align: center;
-    font-family: monospace;
-    font-size: 18px;
-    position: absolute;
-    top:60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+/* upper_cover */
+.upper_cover {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 65%;
+	margin: 0 0 10px;
+	border-radius: 5%;
+	background-image: url('image/мояДорогаяНой.jpg');
+	background-size: cover;
+	box-shadow: 0 40px 100px rgba(130, 103, 86, 0.8);
+}
+
+
+
+/* lower */
+
+/* text */
+.singer-name,
+.music-name {
+	text-align: center;
+	text-transform: capitalize;
+}
+.singer-name {
+	font-size: 30px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.music-name {
+	font-weight: 500;
+	font-size: 15px;
+}
+
+
+/* progress-line-time */
+.progress-line-time {
+	position: relative;
+	width: 100%;
+}
+
+.seek-bar {
+	-webkit-appearance: none;
+	cursor: pointer;
+	width: 100%;
+	height: 5px;
+	border-radius: 10px;
+	background-color: rgb(24 16 0);
+	overflow: hidden;
+}
+.seek-bar::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	cursor: pointer;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: rgb(238, 223, 195);
+	box-shadow: -400px 0 0 400px rgba(237, 191, 162, 0.8);
+}
+
+/* time */
+.current-time,
+.song-duration {
+	font-size: 14px;
+}
+.song-duration {
+	position: absolute;
+	right: 0;
 }
 
 /* buttons */
-#buttons{
-    height: 50px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 50px;
-    position:relative;
-    top:10%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.controls {
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	margin-top: 20px;
 }
-#play,#next,#pre{
-    width: 50px;
-    height: 50px;
-    border: 0;
-    background-color:royalblue;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.play-btn {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border: none;
+	border-radius: 50%;
+	background-color:rgb(118, 74, 29);
+	cursor: pointer;
 }
-#next{
-    width: 30px;
-    height: 30px;
-    left: 70%;
+.play-btn span {
+	position: absolute;
+	width: 10px;
+	height: 30px;
+	border-radius: 2px;
+	background-color:rgb(1, 1, 1);
+	top: 50%;
+	left: 25%;
+	transform: translateY(-50%);
+	transition: .5s;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-#pre{
-    width: 30px;
-    height: 30px;
-    left: 30%;
+.play-btn span:nth-child(2) {
+	left:55%;
+	transform-origin: center;
 }
-#play img,#next img,#pre img{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+/* pause */
+.play-btn.pause span:nth-child(2) {
+	transform: translateY(-50%) scaleY(0);
 }
-
-
-/* seek-bar */
-#seek-bar{
-    position: absolute;
-    z-index: 3;
-    height: 5px;
-    background: #000000;
+.play-btn.pause span:nth-child(1) {
+	width: 35%;
+	left: 37%;
+	transform: translate(-50% -50%);
+	border-radius: 0;
+	clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%)
+}
+.play-btn.pause {
+	animation: pulse 2s linear infinite;
 }
 
+/* @keyframes pulse{
+	0%{
+		box-shadow: 0;
+	}
+	50%{
+		box-shadow: 0 0 0 5px rgb(255, 255, 255, 0.1);
+	}
+	100%{
+		box-shadow: 0 0 0 5px rgb(255, 255, 255, 0.4);
+	}
+} */
+
+/* forward backward button*/
+.btn {
+	width: 55px;
+	height: 55px;
+	background-color: rgb(118, 74, 29);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	cursor: pointer;
+}
 
 
 /* footer */
@@ -138,13 +195,16 @@ footer {
 	width: 100%;
 	height: 10vh;
     background-color: rgb(28, 45, 45);
-    z-index: 3;
+    z-index: 30;
     overflow: hidden;
     color: #fafafa;
+    box-shadow: 0px -26px 8px 5px rgba(0, 0, 0, 0.37);
 }
+/* details */
 .year-github{
     padding-left: 20px;
 }
+/* github-link */
 a {
     cursor: pointer;
     text-decoration: none;
@@ -155,11 +215,26 @@ a {
 .github-link:hover {
     color: #a3cddb;
 }
-
+/* logo */
 .logo-rsschool {
     padding-right: 20px;
 }
-
 .logo-rss-svg {
     width: 5vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
