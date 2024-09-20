@@ -1,0 +1,165 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#background{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#background img{
+    margin: 0;
+    padding: 0;
+    height: 120%;
+    width: 105%;
+    -webkit-filter:blur(10px);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+#blackLayer{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,.2);
+    position: absolute;
+    z-index: 2;
+}
+
+/* main */
+#main{
+    width: 25%;
+    background-color:#fff;
+    border-radius: 15px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+}
+#image img{
+    height: 180px;
+    width: 100%;
+    margin-top: -5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* player */
+#player{
+    padding: 25px;
+    color:#333;
+}
+
+#songTitle{
+    width:300px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 18px;
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* buttons */
+#buttons{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 50px;
+    position:relative;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#play,#next,#pre{
+    width: 50px;
+    height: 50px;
+    border: 0;
+    background-color:royalblue;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#next{
+    width: 30px;
+    height: 30px;
+    left: 70%;
+}
+#pre{
+    width: 30px;
+    height: 30px;
+    left: 30%;
+}
+#play img,#next img,#pre img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+/* seek-bar */
+#seek-bar{
+    position: absolute;
+    z-index: 3;
+    height: 5px;
+    background: #000000;
+}
+
+
+
+/* footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 10vh;
+    background-color: rgb(28, 45, 45);
+    z-index: 3;
+    overflow: hidden;
+    color: #fafafa;
+}
+.year-github{
+    padding-left: 20px;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.github-link {
+    color: #fafafa;
+}
+.github-link:hover {
+    color: #a3cddb;
+}
+
+.logo-rsschool {
+    padding-right: 20px;
+}
+
+.logo-rss-svg {
+    width: 5vh;
+}

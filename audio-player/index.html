@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>audio player</title>
 </head>
+
 <body>
-    
+    <audio src="" id="audio"></audio>
+
+    <div class="player">
+        <div class="upper_cover"></div>
+
+        <div class="lower">
+            <h1 class="singer-name">singer</h1>
+            <p class="music-name">music</p>
+
+            <div class="progress-line-time">
+                <input type="range" value="0" class="seek-bar">
+                <span class="current-time">00:00</span>
+                <span class="song-duration">00:00</span>
+            </div>
+
+            <div class="controls">
+                <button class="btn backward-btn"><img src="./svg/back.png"></button>
+                <button class="play-btn"> <span></span><span></span></button>
+                <button class="btn forward-btn"><img src="./svg/next.png"></button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="year-github">
+            <span class="year"> © 2024 </span>
+            <a class="github-link" href="https://github.com/morevna">Morevna</a>
+        </div>
+
+        <a class="logo-rsschool" href="https://rs.school/courses/javascript-preschool-ru">
+            <img class="logo-rss-svg" src="./svg/rss-logo.svg" alt="logo rsschool">
+        </a>
+
+        </div>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
