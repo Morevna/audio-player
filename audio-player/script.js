@@ -1,7 +1,6 @@
 const music = document.querySelector('#audio');
 const coverBody = document.querySelector('.bg');
 
-
 const audio = new Audio();
 const playBtn = document.querySelector(".play-btn");
 const nextBtn = document.querySelector(".forward-btn");
@@ -16,14 +15,14 @@ const progressFilled = document.querySelector(".seek-bar");
 const currentTimeFielf = document.querySelector(".current-time");
 const endTimeFielf = document.querySelector(".song-duration");
 
-//Глобальные переменные
+//Глоб переменные
 let isPlay = false;
-let currentIndex = 0; // индекс звучащей песни;
+let currentIndex = 0; // индекс текущей песни;
 let currentTime = 0;
 let tick;
 let tickProgress;
 
-//Список треков
+//Список песен
 const playList = [
 	{
 	  artist: "Моя Дорогая",
@@ -48,7 +47,7 @@ const playList = [
 	},
 ];
 
-//Функции
+//
 function playAudio() {
   audio.src = playList[currentIndex].audioPath;
   isPlay = true;
@@ -85,18 +84,6 @@ function clickPlayBtn() {
   }
 }
 
-function playNextAudio() {
-  clearInterval(tick);
-  if (currentIndex < playList.length - 1) {
-    currentIndex++;
-  } else {
-    currentIndex = 0;
-  }
-  currentTime = 0;
-  progressFilled.value = 0;
-  playAudio();
-  changeBodyBg()
-}
 function playPrevAudio() {
   clearInterval(tick);
   if (currentIndex > 0) {
@@ -110,15 +97,28 @@ function playPrevAudio() {
   changeBodyBg()
 }
 
-function showTrackInfo() {
-  trackTitle.innerHTML = playList[currentIndex].title;
-  trackArtist.innerHTML = playList[currentIndex].artist;
+function playNextAudio() {
+  clearInterval(tick);
+  if (currentIndex < playList.length - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  currentTime = 0;
+  progressFilled.value = 0;
+  playAudio();
+  changeBodyBg()
 }
 
 function showTrackCover() {
   trackImg.style.background =
     "url('" + playList[currentIndex].cover + "') no-repeat center";
   trackImg.style.backgroundSize = "cover";
+}
+
+function showTrackInfo() {
+  trackTitle.innerHTML = playList[currentIndex].title;
+  trackArtist.innerHTML = playList[currentIndex].artist;
 }
 
 function startScreen() {
@@ -154,7 +154,7 @@ function setProgresField() {
       progressFilled.value = currentTime;
       fillTimeField(currentTimeFielf, Math.floor(currentTime));
       
-      //Добавляю включение следующего трека по завершению текущего
+      //вкл след песни после другой
       if(Math.floor(progressFilled.value) == playList[currentIndex].duration){
         playNextAudio()
       }
@@ -164,27 +164,13 @@ function setProgresField() {
   }
 }
 
-function moveProgressValue() {
-  if (progressFilled.value != 0) {
-    currentTime = progressFilled.value;
-    fillTimeField(currentTimeFielf, Math.floor(currentTime));
-    if (isPlay) {
-      playAudio();
-    }
-  }
-}
-function stopTick() {
-  if (progressFilled.value != 0 || audio.currentTime != 0) {
-    clearInterval(tick);
-  }
-}
 
 function changeBodyBg(){
   document.body.style.backgroundImage =
   "url('" + playList[currentIndex].cover + "')";
 }
 
-//Подключение функций
+//подкл функций
 startScreen();
 playBtn.addEventListener("click", clickPlayBtn);
 nextBtn.addEventListener("click", playNextAudio);
