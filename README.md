@@ -3,7 +3,7 @@
 A responsive and visually dynamic web audio player built with custom controls, interactive progress tracking, and adaptive backgrounds. Developed as a personal project during the Rolling Scopes School curriculum.
 
 ## 🔗 Live Demo
-[Launch the Audio Player](https://github.io)
+[Launch the Audio Player](https://morevna.github.io/audio-player/)
 
 ## 🛠️ Tech Stack & Architecture
 - **Language:** JavaScript (ES6+)
