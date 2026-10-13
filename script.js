@@ -17,12 +17,11 @@ const endTimeFielf = document.querySelector(".song-duration");
 
 //Глоб переменные
 let isPlay = false;
-let currentIndex = 0; // индекс текущей песни;
+let currentIndex = 0;
 let currentTime = 0;
 let tick;
 let tickProgress;
 
-//Список песен
 const playList = [
 	{
 	  artist: "Моя Дорогая",
@@ -47,7 +46,6 @@ const playList = [
 	},
 ];
 
-//
 function playAudio() {
   audio.src = playList[currentIndex].audioPath;
   isPlay = true;
@@ -59,9 +57,7 @@ function playAudio() {
 
   audio.play();
 
-  if (!playBtn.classList.contains("pause")) {
-    playBtn.classList.toggle("pause");
-  }
+  playBtn.classList.remove("pause");
   setProgresField();
   showTrackInfo();
   showTrackCover();
@@ -70,7 +66,7 @@ function playAudio() {
 function pauseAudio() {
   isPlay = false;
   audio.pause();
-  playBtn.classList.toggle("pause");
+  playBtn.classList.add("pause");
 
   stopTick();
   clearInterval(tickProgress);

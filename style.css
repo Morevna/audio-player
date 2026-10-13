@@ -147,19 +147,7 @@ body {
 	animation: pulse 2s linear infinite;
 }
 
-/* @keyframes pulse{
-	0%{
-		box-shadow: 0;
-	}
-	50%{
-		box-shadow: 0 0 0 5px rgb(255, 255, 255, 0.1);
-	}
-	100%{
-		box-shadow: 0 0 0 5px rgb(255, 255, 255, 0.4);
-	}
-} */
-
-/* forward backward button*/
+/* forward backward btn*/
 .btn {
 	width: 55px;
 	height: 55px;
